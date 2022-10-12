@@ -1,99 +1,24 @@
 #!/usr/bin/python3
+
+ class Square."""
+
 class Square:
 
-    """
+    """Represent a square."""
 
-    class square that has attributes:
 
-        size
-
-    some attributes are protected from input.
-
-    """
 
     def __init__(self, size=0):
 
-        """
+        """Initialize a new square.
 
-        initialization function for our square clasee
+        Args:
 
-        """
-
-        if self.__validate_size(size):
-
-            self.__size = size
-
-
-
-    def __eq__(self, other):
+            size (int): The size of the new square.
 
         """
 
-        used by == to check equality
-
-        """
-
-        return (self.area() == other.area())
-
-
-
-    def __ne__(self, other):
-
-        """
-
-        used by != to check equality
-
-        """
-
-        return (self.area() != other.area())
-
-
-
-    def __lt__(self, other):
-
-        """
-
-        used by < to check equality
-
-        """
-
-        return (self.area() < other.area())
-
-
-
-    def __le__(self, other):
-
-        """
-
-        used by <= to check equality
-
-        """
-
-        return (self.area() <= other.area())
-
-
-
-    def __gt__(self, other):
-
-        """
-
-        used by > to check equality
-
-        """
-
-        return (self.area() > other.area())
-
-
-
-    def __ge__(self, other):
-
-        """
-
-        used by >= to check equality
-
-        """
-
-        return (self.area() >= other.area())
+        self.size = size
 
 
 
@@ -101,13 +26,9 @@ class Square:
 
     def size(self):
 
-        """
+        """Get/set the current size of the square."""
 
-        getter for size attribute
-
-        """
-
-        return self.__size
+        return (self.__size)
 
 
 
@@ -115,48 +36,68 @@ class Square:
 
     def size(self, value):
 
-        """
+        if not isinstance(value, int):
 
-        setter for size attribute
+            raise TypeError("size must be an integer")
 
-        """
+        elif value < 0:
 
-        if self.__validate_size(value):
+            raise ValueError("size must be >= 0")
 
-            self.__size = value
+        self.__size = value
 
 
 
     def area(self):
 
-        """
+        """Return the current area of the square."""
 
-        calculates the area of the square
-
-        """
-
-        return self.__size ** 2
+        return (self.__size * self.__size)
 
 
 
-    def __validate_size(self, size):
+    def __eq__(self, other):
 
-        """
+        """Define the == comparision to a Square."""
 
-        validates the size, checking for errors
+        return self.area() == other.area()
 
-        """
 
-        if type(size) != int:
 
-            raise TypeError("size must be an integer")
+    def __ne__(self, other):
 
-        elif size < 0:
+        """Define the != comparison to a Square."""
 
-            raise ValueError("size must be >= 0")
+        return self.area() != other.area()
 
-        else:
 
-            return True
 
-        return False
+    def __lt__(self, other):
+
+        """Define the < comparison to a Square."""
+
+        return self.area() < other.area()
+
+
+
+    def __le__(self, other):
+
+        """Define the <= comparison to a Square."""
+
+        return self.area() <= other.area()
+
+
+
+    def __gt__(self, other):
+
+        """Define the > comparison to a Square."""
+
+        return self.area() > other.area()
+
+
+
+    def __ge__(self, other):
+
+        """Define the >= compmarison to a Square."""
+
+        return self.area() >= other.area()

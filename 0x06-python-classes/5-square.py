@@ -1,38 +1,56 @@
 #!/usr/bin/python3
 
+square class to represent a square"""
+
 class Square:
 
     """
 
-    class square that has attributes:
+    Defines a Square and its basic properties
 
-        size
+    >>> square_1 = Square()
 
-    some attributes are protected from input.
+    >>> square_2 = Square(7)
 
     """
 
-    def __init__(self, size=0):
+
+
+    def __init__(self, size=0) -> None:
 
         """
 
-        initialization function for our square clasee
+        Innitialize the size of the square. the size can be specified.
+
+        If they are not, the size defaults to 0
+
+        :param size: int size of square ( > 0)
 
         """
 
-        if self.__validate_size(size):
+        if (type(size) is not int):
 
-            self.__size = size
+            raise TypeError("size must be an integer")
+
+        elif size < 0:
+
+            raise ValueError("size must be >= 0")
+
+
+
+        self.__size = size
 
 
 
     @property
 
-    def size(self):
+    def size(self) -> int:
 
         """
 
-        getter for the size property
+        Retrieve the instance attribute size
+
+        :return: the size of the square
 
         """
 
@@ -42,25 +60,35 @@ class Square:
 
     @size.setter
 
-    def size(self, value):
+    def size(self, value: int) -> None:
 
         """
 
-        setter for the size property
+        Set the value of the size
+
+        :param: int size
 
         """
 
-        if self.__validate_size(value):
+        if (type(value) is not int):
 
-            self.__size = value
+            raise TypeError("size must be an integer")
+
+        elif (value < 0):
+
+            raise ValueError("size must be >= 0")
+
+        self.__size = value
 
 
 
-    def area(self):
+    def area(self) -> int:
 
         """
 
-        calculates the area of the square
+        Calculates and returns the area of the square
+
+        :return: the area of the square
 
         """
 
@@ -68,46 +96,20 @@ class Square:
 
 
 
-    def my_print(self):
+    def my_print(self) -> None:
 
         """
 
-        prints the square using '#' characters
+        Print to the stdout '#' * size
 
         """
 
-        i = 0
-
-        for i in range(0, self.__size):
-
-            j = 0
-
-            for j in range(0, self.__size):
-
-                print("#", end='')
+        if self.__size == 0:
 
             print()
 
-
-
-    def __validate_size(self, size):
-
-        """
-
-        validates the size, checking for errors
-
-        """
-
-        if type(size) != int:
-
-            raise TypeError("size must be an integer")
-
-        elif size < 0:
-
-            raise ValueError("size must be >= 0")
-
         else:
 
-            return True
+            for i in range(self.__size):
 
-        return False
+                print("#" * self.__size)

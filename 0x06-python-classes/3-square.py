@@ -1,26 +1,33 @@
 #!/usr/bin/python3
+square class to represent a square"""
 
 class Square:
 
     """
 
-    class square that has attributes:
+    Defines a Square and its basic properties
 
-        size
+    >>> square_1 = Square()
 
-    some attributes are protected from input.
+    >>> square_2 = Square(7)
 
     """
 
-    def __init__(self, size=0):
+
+
+    def __init__(self, size=0) -> None:
 
         """
 
-        initialization function for our square clasee
+        Innitialize the size of the square. the size can be specified.
+
+        If they are not, the size defaults to 0
+
+        :param size: int size of square ( > 0)
 
         """
 
-        if type(size) != int:
+        if (type(size) is not int):
 
             raise TypeError("size must be an integer")
 
@@ -28,18 +35,19 @@ class Square:
 
             raise ValueError("size must be >= 0")
 
-        else:
-
-            self.__size = size
 
 
+        self.__size = size
 
-    def area(self):
 
-        """
 
-        calculates the area of the square
+    def area(self) -> int:
 
         """
 
+        Calculates and returns the area of the square
+
+        :return: the area of the square
+
+        """
         return self.__size ** 2
