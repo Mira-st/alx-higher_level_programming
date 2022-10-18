@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# 5-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -73,4 +72,17 @@ class Rectangle:
 
     def __del__(self):
         """Print a message for every deletion of a Rectangle."""
-        print("Bye rectangle...")5-rectangle.py 
+        print("Bye rectangle...")
+
+
+if __name__ == "__main__":
+    my_rectangle = Rectangle(2, 4)
+    print("Area: {} - Perimeter: {}".format(my_rectangle.area(),
+                                            my_rectangle.perimeter()))
+
+    del my_rectangle
+
+    try:
+        print(my_rectangle)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
