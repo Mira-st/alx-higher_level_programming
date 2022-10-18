@@ -4,6 +4,8 @@
 Defines a class Rectangle
 
 """
+
+
 class Rectangle:
 
  """Representation of a rectangle"""
