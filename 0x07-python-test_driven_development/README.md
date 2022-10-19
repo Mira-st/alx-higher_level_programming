@@ -118,4 +118,4 @@ Tasks
 + You are allowed to use the C standard library 
 + Your shared library will be compiled with this command line:gcc -shared -Wl,-soname,libPython.so -o libPython.so -fPIC - I/usr/include/python3.4 102-python.c 
 Author:
-Orire Kemi
+*Orire Kemi
